@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33712.159
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "smartbookstore", "smartbookstore.csproj", "{95C017CE-8B00-456E-B3FA-3E1DB5BD54FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95C017CE-8B00-456E-B3FA-3E1DB5BD54FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95C017CE-8B00-456E-B3FA-3E1DB5BD54FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95C017CE-8B00-456E-B3FA-3E1DB5BD54FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95C017CE-8B00-456E-B3FA-3E1DB5BD54FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {316F5699-1783-4FAD-AFE8-A6D1704276CC}
+	EndGlobalSection
+EndGlobal

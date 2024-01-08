@@ -20,10 +20,10 @@ namespace smartbookstore
         {
             while (true)
             {
-                Console.WriteLine("1. Add a new book to the library");
-                Console.WriteLine("2. Exit");
+                Console.WriteLine("1. Add a new book to the store");
+                Console.WriteLine("2. Remove book from the store");
                 Console.WriteLine("3. Browse books");
-                //Console.WriteLine("4. Remove book");
+                Console.WriteLine("4. Exit");
 
                 int choice;
                 if (int.TryParse(Console.ReadLine(), out choice))
@@ -35,15 +35,14 @@ namespace smartbookstore
                            adminService.AddBookToLibrary();
                             break;
                         case 2:
-                            Console.WriteLine("Thank you for using the Online Bookstore. Goodbye!");
-                            Environment.Exit(0);
+                            adminService.RemoveBookFromLibrary();
                             break;
                         case 3:
-
                             libraryService.DisplayAllBooks();
                             break;
                         case 4:
-                            adminService.RemoveBookFromLibrary();
+                            Console.WriteLine("Thank you for using the Online Bookstore. Goodbye!");
+                            Environment.Exit(0);
                             break;
 
                         default:

@@ -6,3 +6,11 @@ D:\sophomore\2-1\onlinebookstore\obj\Debug\smartbookstore.csproj.SuggestedBindin
 D:\sophomore\2-1\onlinebookstore\obj\Debug\smartbookstore.csproj.CoreCompileInputs.cache
 D:\sophomore\2-1\onlinebookstore\obj\Debug\onlinebookstore.exe
 D:\sophomore\2-1\onlinebookstore\obj\Debug\onlinebookstore.pdb
+D:\sophomore\2-1\smartbookstore\bin\Debug\onlinebookstore.exe.config
+D:\sophomore\2-1\smartbookstore\bin\Debug\onlinebookstore.exe
+D:\sophomore\2-1\smartbookstore\bin\Debug\onlinebookstore.pdb
+D:\sophomore\2-1\smartbookstore\obj\Debug\smartbookstore.csproj.AssemblyReference.cache
+D:\sophomore\2-1\smartbookstore\obj\Debug\smartbookstore.csproj.SuggestedBindingRedirects.cache
+D:\sophomore\2-1\smartbookstore\obj\Debug\smartbookstore.csproj.CoreCompileInputs.cache
+D:\sophomore\2-1\smartbookstore\obj\Debug\onlinebookstore.exe
+D:\sophomore\2-1\smartbookstore\obj\Debug\onlinebookstore.pdb

@@ -29,8 +29,32 @@ namespace smartbookstore
         {
             return Books.FindAll(book => book.Quantity > 0);
         }
-      
 
+        public List<Book> GetAvailableBooksbyGenre(Genre genre)
+        {
+            return Books.FindAll(book => book.Quantity > 0 && book.BookGenre==genre);
+        }
+
+        public void DisplayBooksbyGenre()
+        {
+            Console.WriteLine("Enter the genre (Fiction, Mystery, Scifi, Romance, Classic, Fantasy, NonFiction, Youngadult, etc.):");
+            string genreInput = Console.ReadLine();
+
+            if (Enum.TryParse<Genre>(genreInput, out Genre genre))
+            {
+                //
+            }
+            else
+            {
+                Console.WriteLine("Invalid genre. Please enter a valid genre.");
+            }
+
+            Console.WriteLine("All Books:");
+            foreach (Book book in GetAvailableBooksbyGenre(genre))
+            {
+                Console.WriteLine($"{book.Title} by {book.Author} - ${book.Price} (Available: {book.Quantity})");
+            }
+        }
         public void DisplayAllBooks()
         {
 
@@ -51,13 +75,14 @@ namespace smartbookstore
         }
 
 
-        public void AddBookToLibrary(string title, string author, double price, int quantity)
+        public void AddBookToLibrary(string title, string author, Genre bookGenre, double price, int quantity)
         {
             string pprice = price.ToString();
             // Check if the book already exists in the library
             Book existingBook = Books.FirstOrDefault(book =>
                 book.Title.Equals(title, StringComparison.OrdinalIgnoreCase) &&
                 book.Author.Equals(author, StringComparison.OrdinalIgnoreCase) &&
+                book.BookGenre == bookGenre && 
                 book.Price.Equals(price));
 
             if (existingBook != null)
@@ -73,6 +98,7 @@ namespace smartbookstore
                 {
                     Title = title,
                     Author = author,
+                    BookGenre = bookGenre,
                     Price = price,
                     Quantity = quantity,
                     IsBorrowed = false
@@ -100,15 +126,16 @@ namespace smartbookstore
                     foreach (string line in lines)
                     {
                         string[] parts = line.Split(',');
-                        if (parts.Length == 5)
+                        if (parts.Length == 6)
                         {
                             Book book = new Book
                             {
                                 Title = parts[0],
                                 Author = parts[1],
-                                Price = double.Parse(parts[2]),
-                                Quantity = int.Parse(parts[3]),
-                                IsBorrowed = bool.Parse(parts[4])
+                                BookGenre= (Genre)Enum.Parse(typeof(Genre), parts[2]),
+                                Price = double.Parse(parts[3]),
+                                Quantity = int.Parse(parts[4]),
+                                IsBorrowed = bool.Parse(parts[5])
                             };
 
                             Books.Add(book);
@@ -122,6 +149,7 @@ namespace smartbookstore
             }
         }
 
+
         public void SaveBookData()
         {
             try
@@ -130,8 +158,7 @@ namespace smartbookstore
                 {
                     foreach (Book book in Books)
                     {
-                        sw.WriteLine($"{book.Title},{book.Author},{book.Price},{book.Quantity},{book.IsBorrowed}");
-                        //sw.Flush();
+                        sw.WriteLine($"{book.Title},{book.Author},{book.BookGenre},{book.Price},{book.Quantity},{book.IsBorrowed}");
                     }
                 }
 
@@ -145,6 +172,7 @@ namespace smartbookstore
         }
 
 
+
         private void LoadSoldBooksData()
         {
             if (File.Exists(soldBooksFilePath))
@@ -153,15 +181,16 @@ namespace smartbookstore
                 foreach (string line in lines)
                 {
                     string[] values = line.Split(',');
-                    if (values.Length == 5)
+                    if (values.Length == 6)
                     {
                         SoldBooks.Add(new Book
                         {
                             Title = values[0],
                             Author = values[1],
-                            Price = Convert.ToDouble(values[2]),
-                            Quantity = Convert.ToInt32(values[3]),
-                            IsBorrowed = Convert.ToBoolean(values[4])
+                            BookGenre = (Genre)Enum.Parse(typeof(Genre), values[2]),
+                            Price = Convert.ToDouble(values[3]),
+                            Quantity = Convert.ToInt32(values[4]),
+                            IsBorrowed = Convert.ToBoolean(values[5])
                         });
                     }
                 }
@@ -172,7 +201,7 @@ namespace smartbookstore
         private void SaveSoldBooksData(double totalBill)
         {
             List<string> lines = SoldBooks.Select(book =>
-                $"{book.Title},{book.Author},{book.Price},{book.Quantity},{book.IsBorrowed}").ToList();
+                $"{book.Title},{book.Author},{book.BookGenre},{book.Price},{book.Quantity},{book.IsBorrowed}").ToList();
 
             // Append total bill to the file
             lines.Add($"TotalBill,{totalBill}");
@@ -194,6 +223,7 @@ namespace smartbookstore
                 {
                     Title = existingBook.Title,
                     Author = existingBook.Author,
+                    BookGenre = existingBook.BookGenre,
                     Price = existingBook.Price,
                     Quantity = quantity,
                     IsBorrowed = false
@@ -233,6 +263,7 @@ namespace smartbookstore
                     {
                         Title = existingBook.Title,
                         Author = existingBook.Author,
+                        BookGenre = existingBook.BookGenre,
                         Price = existingBook.Price,
                         Quantity = cartItem.Quantity,
                         IsBorrowed = false

@@ -11,8 +11,8 @@ namespace smartbookstore
   
         void DisplayAvailableBooks();
         void DisplayAllBooks();
-   
-        void AddBookToLibrary(string title, string author, double price, int quantity);
+        void DisplayBooksbyGenre();
+        void AddBookToLibrary(string title, string author, Genre genre, double price, int quantity);
         void AddinCart(string title, int quantity);
         //void AddToCart();
        // void ReturnBookToLibrary(Book book, string userid);

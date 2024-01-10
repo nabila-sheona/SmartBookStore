@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace smartbookstore
 {
-
+    public enum Genre
+    {
+        Fiction,
+        Mystery,
+        Scifi,
+        Romance,
+        Classic,
+        Fantasy,
+        NonFiction,
+        Youngadult
+        // Add more genres as needed
+    }
 
     public class Book
     {
@@ -15,6 +26,8 @@ namespace smartbookstore
         public double Price { get; set; }
         public int Quantity { get; set; }
         public bool IsBorrowed { get; set; }
+
+        public Genre BookGenre { get; set; }
 
         public bool IsAvailable()
         {

@@ -1,3 +1,2 @@
-Pride and prejudice,Jane austen,9.99,0,False
-Divergent,Veronica Roth,7.99,11,True
-Cinder,Marissa Meyer,8.99,8,True
+a,a,NonFiction,12,30,False
+queens,elizabeth,Romance,14.7,2,False

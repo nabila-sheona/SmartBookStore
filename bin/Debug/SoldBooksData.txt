@@ -1,11 +1,2 @@
-Pride and prejudice,Jane austen,9.99,1,False
-a,a,12,1,False
-1989,owells,14.49,2,False
-s,s,1,4,False
-P&P,P,12,4,False
-Pride and prejudice,Jane austen,9.99,1,False
-a,a,12,11,False
-a,a,1,1,False
-P&P,P,12,2,False
-Cinder,Marissa Meyer,8.99,2,False
-TotalBill,17.98
+a,a,NonFiction,12,4,False
+TotalBill,48

@@ -34,6 +34,18 @@ namespace smartbookstore
                 return;
             }
 
+            Console.WriteLine("Enter the genre (Fiction, Mystery, Scifi, Romance, Classic, Fantasy, NonFiction, Youngadult, etc.):");
+            string genreInput = Console.ReadLine();
+
+            if (Enum.TryParse<Genre>(genreInput, out Genre genre))
+            {
+              //
+            }
+            else
+            {
+                Console.WriteLine("Invalid genre. Please enter a valid genre.");
+            }
+
             Console.Write("Enter the price: ");
 
             if (double.TryParse(Console.ReadLine(), out double price) && price > 0)
@@ -42,7 +54,7 @@ namespace smartbookstore
 
                 if (int.TryParse(Console.ReadLine(), out int quantity) && quantity > 0)
                 {
-                    libraryService.AddBookToLibrary(title, author, price, quantity);
+                    libraryService.AddBookToLibrary(title, author, genre, price, quantity);
                     Console.WriteLine($"{quantity} copies of '{title}' by {author} added to the library.");
                 }
                 else
@@ -54,6 +66,8 @@ namespace smartbookstore
             {
                 Console.WriteLine("Invalid price. Please enter a valid number greater than 0.");
             }
+
+
         }
 
         public void RemoveBookFromLibrary()

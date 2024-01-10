@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace onlinebookstore
+namespace smartbookstore
 {
     public class GenerateNewUser: IGenerateNewUser
     {
